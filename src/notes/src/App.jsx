@@ -6,14 +6,18 @@ import uuid from "react-uuid";
 
 function App() {
   const [notes, setNotes] = useState([]);
-  const [activeNoteId, setActiveNoteId] = useState(null);
+  const [activeNote, setActiveNote] = useState(false);
+  const [isHiddenSidebar, setIsHiddenSidebar] = useState(false);
 
   const onAddNote = () => {
-    console.log("新しくノートが追加されました");
+    console.log("新しく日報が追加されました");
     const createNotes = {
       id: uuid(),
-      title: "新しいノート",
-      content: "新しいノートの内容",
+      title: new Date().toLocaleDateString("ja-JP") + ' 日報',
+      todayContent: "",
+      tomorrowContent: "",
+      issue: "",
+      announcement: "",
       modDate: Date.now(),
     };
     const newNotes = [...notes, createNotes];
@@ -39,7 +43,7 @@ function App() {
   }
 
   const getActiveNote = () => {
-    return notes.find((note) => note.id === activeNoteId)
+    return notes.find((note) => note.id === activeNote)
   }
 
   return (
@@ -48,11 +52,12 @@ function App() {
         notes={notes}
         onAddNote={onAddNote}
         onDeleteNote={onDeleteNote}
-        activeNoteId={activeNoteId}
-        setActiveNoteId={setActiveNoteId}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
+        isHiddenSidebar={isHiddenSidebar}
+        setIsHiddenSidebar={setIsHiddenSidebar}
       />
       <Main
-      activeNoteId={activeNoteId}
       activeNote={getActiveNote()}
       onUpdateNotes={onUpdateNotes}
       />
