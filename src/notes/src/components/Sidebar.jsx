@@ -1,0 +1,34 @@
+import React, { useState } from "react";
+import "./Sidebar.css";
+
+const Sidebar = (props) => {
+  const { notes, onAddNote, onDeleteNote, activeNoteId, setActiveNoteId } = props;
+
+  return (
+    <div className="app-sidebar">
+      <div className="app-sidebar-header">
+        <h1>ノート</h1>
+        <button onClick={onAddNote}>追加</button>
+      </div>
+      <div className="app-sidebar-notes">
+        {notes.map((note) => (
+          <div className={`app-sidebar-note ${note.id === activeNoteId && "active"}`} key={note.id} onClick={() => setActiveNoteId(note.id)}>
+            <div className="app-sidebar-note-title">
+              <strong>{note.title}</strong>
+              <button onClick={() => onDeleteNote(note.id)}>削除</button>
+            </div>
+            <p>{note.content}</p>
+            <small>
+              {new Date(note.modDate).toLocaleDateString("ja-JP", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </small>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;
