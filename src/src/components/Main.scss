@@ -1,0 +1,71 @@
+.app-main {
+  display: flex;
+  width: 70%;
+  height: 100vh;
+  color: #030303;
+  background-color: #fbfbfa;
+}
+
+.app-main-note-edit,
+.app-main-note-preview {
+  width: 50vw;
+  /* height: 50vh; */
+}
+
+.app-main-note-edit {
+  padding: 25px;
+  overflow-y: scroll;
+}
+
+.app-main-note-edit input,
+textarea {
+  display: block;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 100%;
+  height: calc(50vh - 200px);
+  padding: 5px;
+  resize: none;
+}
+
+.app-main-note-edit input {
+  height: 50px;
+  font-size: 2rem;
+}
+
+.app-main-note-preview {
+  border-top: 1px solid #ddd;
+  overflow-y: scroll;
+  padding: 25px 25px 25px 25px;
+  padding-bottom: 200px;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.preview-title {
+  /* padding: 25px 25px 25px 25px; */
+}
+
+.preview-content {
+  padding: 0px 0px 0px 0px;
+  margin: 0;
+}
+
+.markdown-preview {
+  margin: 15px;
+  line-height: 2rem;
+}
+
+/* スクロールバー全体 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* スクロールバーの軌道（バーが動く領域） */
+::-webkit-scrollbar-track {
+  background-color: #EDECE9; /* スクロールバー以外の領域の色 */
+}
+
+/* スクロールバーのバー */
+::-webkit-scrollbar-thumb {
+  background-color: #D3D1CB; /* スクロールバーの色 */
+}

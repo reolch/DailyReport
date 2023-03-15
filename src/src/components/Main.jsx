@@ -1,7 +1,7 @@
 import React from "react";
 import reactMarkdown from "react-markdown";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import "./Main.css";
+import "./Main.scss";
 import { TextField } from "@mui/material";
 
 const Main = (props) => {
