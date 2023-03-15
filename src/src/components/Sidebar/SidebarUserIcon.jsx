@@ -8,7 +8,7 @@ const SidebarUserIcon = () => {
         src="/image/user-icon.png"
         sx={{ width: 53, height: 53 }}
       ></Avatar>
-      <p>Yoshida Taishi</p>
+      <p>User</p>
     </>
   );
 };
